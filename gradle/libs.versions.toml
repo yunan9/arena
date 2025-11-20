@@ -1,0 +1,16 @@
+[versions]
+kotlin = '2.2.20'
+guice = '7.0.0'
+
+[libraries]
+kotlin-gradle-plugin = { module = 'org.jetbrains.kotlin:kotlin-gradle-plugin', version.ref = 'kotlin' }
+
+guice-bom = { module = 'com.google.inject:guice-bom', version.ref = 'guice' }
+guice = { module = 'com.google.inject:guice' }
+guice-assisted-inject = { module = 'com.google.inject.extensions:guice-assistedinject' }
+
+yunan9-commons = 'io.github.yunan9:commons:0.1.2-SNAPSHOT'
+jetbrains-annotations = 'org.jetbrains:annotations:26.0.2-1'
+
+[bundles]
+guice = ['guice', 'guice-assisted-inject']
