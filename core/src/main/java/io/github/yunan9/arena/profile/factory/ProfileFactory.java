@@ -1,14 +1,14 @@
 package io.github.yunan9.arena.profile.factory;
 
-import io.github.yunan9.arena.profile.Profile;
-import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.NotNull;
+import static org.jetbrains.annotations.ApiStatus.*;
 
+import io.github.yunan9.arena.profile.Profile;
 import java.util.Locale;
 import java.util.UUID;
+import org.jetbrains.annotations.NotNull;
 
-@ApiStatus.NonExtendable
-@ApiStatus.Internal
+@NonExtendable
+@Internal
 @FunctionalInterface
 public interface ProfileFactory {
 
