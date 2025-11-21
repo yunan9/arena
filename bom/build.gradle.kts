@@ -1,4 +1,5 @@
 plugins {
+    id("arena.maven-publishing-conventions")
     `java-platform`
 }
 
