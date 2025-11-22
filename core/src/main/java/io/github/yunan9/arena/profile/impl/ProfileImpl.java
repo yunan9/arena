@@ -14,12 +14,6 @@ public final class ProfileImpl implements Profile {
 
   private final PointerStore pointerStore;
 
-  private final UUID id;
-
-  private String name;
-
-  private Locale locale;
-
   @AssistedInject
   public ProfileImpl(
       final @Assisted @NotNull UUID id,
@@ -27,40 +21,13 @@ public final class ProfileImpl implements Profile {
       final @Assisted @NotNull Locale locale) {
     this.pointerStore = PointerStore.newConcurrentPointerStore();
 
-    this.id = id;
-
-    this.name = name;
-
-    this.locale = locale;
+    this.pointerStore.registerPointer(UUID_POINTER_KEY, id);
+    this.pointerStore.registerPointer(NAME_POINTER_KEY, name);
+    this.pointerStore.registerPointer(LOCALE_POINTER_KEY, locale);
   }
 
   @Override
   public @NotNull PointerStore getPointerStore() {
     return this.pointerStore;
-  }
-
-  @Override
-  public @NotNull UUID getId() {
-    return this.id;
-  }
-
-  @Override
-  public @NotNull String getName() {
-    return this.name;
-  }
-
-  @Override
-  public void setName(final @NotNull String name) {
-    this.name = name;
-  }
-
-  @Override
-  public @NotNull Locale getLocale() {
-    return this.locale;
-  }
-
-  @Override
-  public void setLocale(final @NotNull Locale locale) {
-    this.locale = locale;
   }
 }
