@@ -21,9 +21,9 @@ public final class ProfileImpl implements Profile {
       final @Assisted @NotNull Locale locale) {
     this.pointerStore = PointerStore.newConcurrentPointerStore();
 
-    this.pointerStore.registerPointer(UUID_POINTER_KEY, id);
-    this.pointerStore.registerPointer(NAME_POINTER_KEY, name);
-    this.pointerStore.registerPointer(LOCALE_POINTER_KEY, locale);
+    this.pointerStore.registerPointer(UUID_POINTER_KEY, () -> id);
+    this.pointerStore.registerPointer(NAME_POINTER_KEY, () -> name);
+    this.pointerStore.registerPointer(LOCALE_POINTER_KEY, () -> locale);
   }
 
   @Override
