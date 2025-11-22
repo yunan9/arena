@@ -3,6 +3,7 @@ package io.github.yunan9.arena.profile.impl;
 import com.google.inject.assistedinject.Assisted;
 import com.google.inject.assistedinject.AssistedInject;
 import io.github.yunan9.arena.profile.Profile;
+import io.github.yunan9.pointer.store.PointerStore;
 import java.util.Locale;
 import java.util.UUID;
 import org.jetbrains.annotations.ApiStatus;
@@ -10,6 +11,8 @@ import org.jetbrains.annotations.NotNull;
 
 @ApiStatus.Internal
 public final class ProfileImpl implements Profile {
+
+  private final PointerStore pointerStore;
 
   private final UUID id;
 
@@ -22,11 +25,18 @@ public final class ProfileImpl implements Profile {
       final @Assisted @NotNull UUID id,
       final @Assisted @NotNull String name,
       final @Assisted @NotNull Locale locale) {
+    this.pointerStore = PointerStore.newConcurrentPointerStore();
+
     this.id = id;
 
     this.name = name;
 
     this.locale = locale;
+  }
+
+  @Override
+  public @NotNull PointerStore getPointerStore() {
+    return this.pointerStore;
   }
 
   @Override
