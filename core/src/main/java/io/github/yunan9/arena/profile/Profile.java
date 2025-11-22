@@ -1,5 +1,7 @@
 package io.github.yunan9.arena.profile;
 
+import static io.github.yunan9.pointer.key.PointerKey.*;
+
 import io.github.yunan9.commons.id.Identifiable;
 import io.github.yunan9.commons.l10n.impl.MutableLocalizable;
 import io.github.yunan9.commons.name.impl.MutableNameable;
@@ -17,9 +19,9 @@ public interface Profile
         MutableNameable<@NotNull String>,
         MutableLocalizable {
 
-  PointerKey<UUID> UUID_POINTER_KEY = PointerKey.newPointerKey("uuid", UUID.class);
-  PointerKey<String> NAME_POINTER_KEY = PointerKey.newPointerKey("name", String.class);
-  PointerKey<Locale> LOCALE_POINTER_KEY = PointerKey.newPointerKey("locale", Locale.class);
+  PointerKey<UUID> UUID_POINTER_KEY = newPointerKey("uuid", UUID.class);
+  PointerKey<String> NAME_POINTER_KEY = newPointerKey("name", String.class);
+  PointerKey<Locale> LOCALE_POINTER_KEY = newPointerKey("locale", Locale.class);
 
   @Override
   @NotNull
