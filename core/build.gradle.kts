@@ -7,6 +7,7 @@ dependencies {
     api(platform(libs.guice.bom))
     api(libs.bundles.guice)
 
-    api(libs.yunan9.commons)
+    api(libs.bundles.yunan9.series)
+
     api(libs.jetbrains.annotations)
 }
